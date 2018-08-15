@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jd.ai</groupId>
+    <artifactId>video-review</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+    <description>video-review</description>
+    <name>video-review</name>
+    <modules>
+        <module>video-review-client</module>
+        <module>video-review-common</module>
+        <module>video-review-dao</module>
+        <module>video-review-domain</module>
+        <!--<module>video-review-manager</module>-->
+        <module>video-review-service</module>
+        <module>video-review-web</module>
+    </modules>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <spring_version>3.2.4.RELEASE</spring_version>
+        <jackson.version>1.8.1</jackson.version>
+        <slf4j_version>1.7.5</slf4j_version>
+        <servlet_version>2.5</servlet_version>
+        <tomcat.version>8.0.30</tomcat.version>
+        <!--<kafkaArtifact>kafka_2.9.2</kafkaArtifact>-->
+        <!--<scalaVersion>2.9.2</scalaVersion>-->
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring_version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring_version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.5</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- if you use velocity view in springmvc -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-collections</artifactId>
+                    <groupId>commons-collections</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <artifactId>commons-collections</artifactId>
+            <groupId>commons-collections</groupId>
+            <version>3.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+            <version>2.6.3</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- if you use velocity layout view in springmvc -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-tools</artifactId>
+            <version>2.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.struts</groupId>
+                    <artifactId>struts-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.struts</groupId>
+                    <artifactId>struts-taglib</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.struts</groupId>
+                    <artifactId>struts-tiles</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>sslext</groupId>
+                    <artifactId>sslext</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils-core</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.9</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.velocity</groupId>
+                    <artifactId>velocity-tools</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>0.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <!-- if you use fileupload in spring mvc -->
+        <!-- if you use springCache in spring mvc -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.6</version>
+        </dependency>
+        <!-- jd jars end-->
+        <dependency>
+            <groupId>com.jd.common</groupId>
+            <artifactId>jd-common-util</artifactId>
+            <version>1.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-beanutils</artifactId>
+                    <groupId>commons-beanutils</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-codec</artifactId>
+                    <groupId>commons-codec</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.jd.common</groupId>
+            <artifactId>jd-common-web</artifactId>
+            <version>1.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.jd.common</groupId>
+            <artifactId>jd-common-cached</artifactId>
+            <version>1.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jd.common</groupId>
+            <artifactId>jd-common-manager</artifactId>
+            <version>1.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.jd.common</groupId>
+            <artifactId>jd-common-dao</artifactId>
+            <version>1.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.jd.security.codesec</groupId>
+            <artifactId>ajdv</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.4</version>
+        </dependency>-->
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.2</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ezmorph</groupId>
+            <artifactId>ezmorph</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+        <!-- slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j_version}</version>
+        </dependency>
+        <!-- slf4j-log4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j_version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.1.3.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-lgpl</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jd.ump</groupId>
+            <artifactId>profiler</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jd.jmq</groupId>
+            <artifactId>jmq-client-spring</artifactId>
+            <version>2.1.5-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-beans</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jd</groupId>
+            <artifactId>jsf</artifactId>
+            <version>1.6.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jd.image</groupId>
+            <artifactId>image-common</artifactId>
+            <version>1.0.4-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>fastjson</artifactId>
+                    <groupId>com.alibaba</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>14.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jd.common</groupId>
+            <artifactId>sso-uim-spring</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jd.security</groupId>
+            <artifactId>jd-security-tomcat</artifactId>
+            <version>1.4.WEBAPP</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+            <!--<plugin>-->
+                <!--<artifactId>maven-resources-plugin</artifactId>-->
+                <!--<version>2.6</version>-->
+                <!--<configuration>-->
+                    <!--<encoding>UTF-8</encoding>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <skip>true</skip>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>pop_yf</id>
+            <properties>
+                <property-path>pop_yf</property-path>
+                <!--erp写的登录cookie的名称-->
+                <aii.hrm.auth.cookie.name>erp1.jd.com</aii.hrm.auth.cookie.name>
+                <!--erp cookie的domain -->
+                <aii.hrm.auth.cookie.domain>videoreview.jd.com</aii.hrm.auth.cookie.domain>
+                <!--erp登录域名 -->
+                <login.domain.name>erp1.360buy.com</login.domain.name>
+                <aii.login.cookie.name>_admin_</aii.login.cookie.name>
+                <aii.session.timeout>180000</aii.session.timeout>
+                <!-- log日志 -->
+                <aii.log.level>INFO</aii.log.level>
+                <!--系统域名  -->
+                <aii.domain.name>videoreview.jd.com</aii.domain.name>
+                <aii.log.path>/export/Logs/${aii.domain.name}</aii.log.path>
+
+                <!--erp登录地址 -->
+                <login.address>http://ssa.jd.com/sso/login</login.address>
+
+                <!-- 正式环境下引用spring-config-jsf.xml -->
+                <aii.jsf.spring.config>jsf</aii.jsf.spring.config>
+                <!-- 正式环境下引用spring-config-refer.xml -->
+                <aii.refer.spring.config>refer</aii.refer.spring.config>
+
+                <aii.business.identity>pop</aii.business.identity>
+                <aii.business.appId>100000</aii.business.appId>
+                <aii.business.logo.blacklist>logo-blacklist-pop</aii.business.logo.blacklist>
+                <aii.business.logo.fuzzymap>logo-fuzzy-map</aii.business.logo.fuzzymap>
+
+
+                <aii.conf.imageUploadAucode>c1200b6c0fc4804ae1081ef0ad0d272d</aii.conf.imageUploadAucode>
+                <aii.conf.imagePath>http://img20.360buyimg.com/n1/</aii.conf.imagePath>
+                <aii.conf.originalImagePath>http://img20.360buyimg.com/cv/</aii.conf.originalImagePath>
+
+                <aii.mq.videoInfoTopic>apply_video_auto_check_yf</aii.mq.videoInfoTopic>
+                <aii.mq.feedbackTopic>video_man_check_result_yf</aii.mq.feedbackTopic>
+                <aii.mq.producerTopic>video_auto_check_result_yf</aii.mq.producerTopic>
+
+                <aii.conf.loginCookieTime>1800</aii.conf.loginCookieTime>
+                <aii.conf.loginAccount>pdosadmin,@pdos123;pdosuser,123456</aii.conf.loginAccount>
+                <aii.conf.loginCookieDomain>.jd.com</aii.conf.loginCookieDomain>
+                <aii.data.img3d.path>/export/Data/backup/cv_video_review/video/</aii.data.img3d.path>
+                <!-- ***************************************************************-->
+
+            </properties>
+        </profile>
+
+        <profile>
+            <id>pop_pro</id>
+            <properties>
+                <property-path>pop_pro</property-path>
+                <!--erp写的登录cookie的名称-->
+                <aii.hrm.auth.cookie.name>erp1.jd.com</aii.hrm.auth.cookie.name>
+                <!--erp cookie的domain -->
+                <aii.hrm.auth.cookie.domain>videoreview.jd.com</aii.hrm.auth.cookie.domain>
+                <!--erp登录域名 -->
+                <login.domain.name>erp1.360buy.com</login.domain.name>
+                <aii.login.cookie.name>_admin_</aii.login.cookie.name>
+                <aii.session.timeout>180000</aii.session.timeout>
+                <!-- log日志 -->
+                <aii.log.level>INFO</aii.log.level>
+                <!--系统域名  -->
+                <aii.domain.name>videoreview.jd.com</aii.domain.name>
+                <aii.log.path>/export/Logs/${aii.domain.name}</aii.log.path>
+
+                <!--erp登录地址 -->
+                <login.address>http://ssa.jd.com/sso/login</login.address>
+
+                <!-- 正式环境下引用spring-config-jsf.xml -->
+                <aii.jsf.spring.config>jsf</aii.jsf.spring.config>
+                <!-- 正式环境下引用spring-config-refer.xml -->
+                <aii.refer.spring.config>refer</aii.refer.spring.config>
+
+                <aii.business.identity>pop</aii.business.identity>
+                <aii.business.appId>100000</aii.business.appId>
+                <aii.business.logo.blacklist>logo-blacklist-pop</aii.business.logo.blacklist>
+                <aii.business.logo.fuzzymap>logo-fuzzy-map</aii.business.logo.fuzzymap>
+
+
+                <aii.conf.imageUploadAucode>c1200b6c0fc4804ae1081ef0ad0d272d</aii.conf.imageUploadAucode>
+                <aii.conf.imagePath>http://img20.360buyimg.com/n1/</aii.conf.imagePath>
+                <aii.conf.originalImagePath>http://img20.360buyimg.com/cv/</aii.conf.originalImagePath>
+
+                <aii.mq.videoInfoTopic>apply_video_auto_check</aii.mq.videoInfoTopic>
+                <aii.mq.feedbackTopic>video_man_check_result</aii.mq.feedbackTopic>
+                <aii.mq.producerTopic>video_auto_check_result</aii.mq.producerTopic>
+
+                <aii.conf.loginCookieTime>1800</aii.conf.loginCookieTime>
+                <aii.conf.loginAccount>pdosadmin,@pdos123;pdosuser,123456</aii.conf.loginAccount>
+                <aii.conf.loginCookieDomain>.jd.com</aii.conf.loginCookieDomain>
+                <aii.data.img3d.path>/export/Data/backup/cv_video_review/video/</aii.data.img3d.path>
+                <!-- ***************************************************************-->
+
+            </properties>
+        </profile>
+
+        <profile>
+            <id>wechat_pro</id>
+            <properties>
+                <property-path>wechat_pro</property-path>
+                <!--erp写的登录cookie的名称-->
+                <aii.hrm.auth.cookie.name>erp1.jd.com</aii.hrm.auth.cookie.name>
+                <!--erp cookie的domain -->
+                <aii.hrm.auth.cookie.domain>videoreview.jd.com</aii.hrm.auth.cookie.domain>
+                <!--erp登录域名 -->
+                <login.domain.name>erp1.360buy.com</login.domain.name>
+                <aii.login.cookie.name>_admin_</aii.login.cookie.name>
+                <aii.session.timeout>180000</aii.session.timeout>
+                <!-- log日志 -->
+                <aii.log.level>INFO</aii.log.level>
+                <!--系统域名  -->
+                <aii.domain.name>videoreview.jd.com</aii.domain.name>
+                <aii.log.path>/export/Logs/${aii.domain.name}</aii.log.path>
+
+                <!--erp登录地址 -->
+                <login.address>http://ssa.jd.com/sso/login</login.address>
+
+                <!-- 正式环境下引用spring-config-jsf.xml -->
+                <aii.jsf.spring.config>jsf</aii.jsf.spring.config>
+                <!-- 正式环境下引用spring-config-refer.xml -->
+                <aii.refer.spring.config>refer</aii.refer.spring.config>
+
+                <aii.business.identity>wechat</aii.business.identity>
+                <aii.business.appId>300000</aii.business.appId>
+                <aii.business.logo.blacklist>logo-blacklist-common</aii.business.logo.blacklist>
+                <aii.business.logo.fuzzymap>logo-fuzzy-map</aii.business.logo.fuzzymap>
+
+
+                <aii.conf.imageUploadAucode>c1200b6c0fc4804ae1081ef0ad0d272d</aii.conf.imageUploadAucode>
+                <aii.conf.imagePath>http://img20.360buyimg.com/n1/</aii.conf.imagePath>
+                <aii.conf.originalImagePath>http://img20.360buyimg.com/cv/</aii.conf.originalImagePath>
+
+                <aii.mq.videoInfoTopic>wechat_video_auto_check</aii.mq.videoInfoTopic>
+                <aii.mq.feedbackTopic>wechat_video_man_check_result</aii.mq.feedbackTopic>
+                <aii.mq.producerTopic>wechat_video_auto_check_result</aii.mq.producerTopic>
+
+                <aii.conf.loginCookieTime>1800</aii.conf.loginCookieTime>
+                <aii.conf.loginAccount>pdosadmin,@pdos123;pdosuser,123456</aii.conf.loginAccount>
+                <aii.conf.loginCookieDomain>.jd.com</aii.conf.loginCookieDomain>
+                <aii.data.img3d.path>/export/Data/backup/cv_video_review/video/</aii.data.img3d.path>
+                <!-- ***************************************************************-->
+
+            </properties>
+        </profile>
+
+        <profile>
+            <id>paipai_pro</id>
+            <properties>
+                <property-path>paipai_pro</property-path>
+                <!--erp写的登录cookie的名称-->
+                <aii.hrm.auth.cookie.name>erp1.jd.com</aii.hrm.auth.cookie.name>
+                <!--erp cookie的domain -->
+                <aii.hrm.auth.cookie.domain>videoreview.jd.com</aii.hrm.auth.cookie.domain>
+                <!--erp登录域名 -->
+                <login.domain.name>erp1.360buy.com</login.domain.name>
+                <aii.login.cookie.name>_admin_</aii.login.cookie.name>
+                <aii.session.timeout>180000</aii.session.timeout>
+                <!-- log日志 -->
+                <aii.log.level>INFO</aii.log.level>
+                <!--系统域名  -->
+                <aii.domain.name>videoreview.jd.com</aii.domain.name>
+                <aii.log.path>/export/Logs/${aii.domain.name}</aii.log.path>
+
+                <!--erp登录地址 -->
+                <login.address>http://ssa.jd.com/sso/login</login.address>
+
+                <!-- 正式环境下引用spring-config-jsf.xml -->
+                <aii.jsf.spring.config>jsf</aii.jsf.spring.config>
+                <!-- 正式环境下引用spring-config-refer.xml -->
+                <aii.refer.spring.config>refer</aii.refer.spring.config>
+
+                <aii.business.identity>paipai</aii.business.identity>
+                <aii.business.appId>400000</aii.business.appId>
+                <aii.business.logo.blacklist>logo-blacklist-paipai</aii.business.logo.blacklist>
+                <aii.business.logo.fuzzymap>logo-fuzzy-map</aii.business.logo.fuzzymap>
+
+
+
+                <aii.conf.imageUploadAucode>c1200b6c0fc4804ae1081ef0ad0d272d</aii.conf.imageUploadAucode>
+                <aii.conf.imagePath>http://img20.360buyimg.com/n1/</aii.conf.imagePath>
+                <aii.conf.originalImagePath>http://img20.360buyimg.com/cv/</aii.conf.originalImagePath>
+
+                <aii.mq.videoInfoTopic>video_paipai</aii.mq.videoInfoTopic>
+                <aii.mq.feedbackTopic>feedback_paipai</aii.mq.feedbackTopic>
+                <aii.mq.producerTopic>review_paipai</aii.mq.producerTopic>
+
+                <aii.conf.loginCookieTime>1800</aii.conf.loginCookieTime>
+                <aii.conf.loginAccount>pdosadmin,@pdos123;pdosuser,123456</aii.conf.loginAccount>
+                <aii.conf.loginCookieDomain>.jd.com</aii.conf.loginCookieDomain>
+                <aii.data.img3d.path>/export/Data/backup/cv_video_review/video/</aii.data.img3d.path>
+                <!-- ***************************************************************-->
+            </properties>
+        </profile>
+
+
+        <profile>
+            <id>paipai_yf</id>
+            <properties>
+                <property-path>paipai_yf</property-path>
+                <!--erp写的登录cookie的名称-->
+                <aii.hrm.auth.cookie.name>erp1.jd.com</aii.hrm.auth.cookie.name>
+                <!--erp cookie的domain -->
+                <aii.hrm.auth.cookie.domain>videoreview.jd.com</aii.hrm.auth.cookie.domain>
+                <!--erp登录域名 -->
+                <login.domain.name>erp1.360buy.com</login.domain.name>
+                <aii.login.cookie.name>_admin_</aii.login.cookie.name>
+                <aii.session.timeout>180000</aii.session.timeout>
+                <!-- log日志 -->
+                <aii.log.level>INFO</aii.log.level>
+                <!--系统域名  -->
+                <aii.domain.name>videoreview.jd.com</aii.domain.name>
+                <aii.log.path>/export/Logs/${aii.domain.name}</aii.log.path>
+
+                <!--erp登录地址 -->
+                <login.address>http://ssa.jd.com/sso/login</login.address>
+                <!-- 正式环境下引用spring-config-jsf.xml -->
+                <aii.jsf.spring.config>jsf</aii.jsf.spring.config>
+                <!-- 正式环境下引用spring-config-refer.xml -->
+                <aii.refer.spring.config>refer</aii.refer.spring.config>
+
+                <aii.business.identity>paipai</aii.business.identity>
+                <aii.business.appId>400000</aii.business.appId>
+                <aii.business.logo.blacklist>logo-blacklist-paipai</aii.business.logo.blacklist>
+                <aii.business.logo.fuzzymap>logo-fuzzy-map</aii.business.logo.fuzzymap>
+
+
+                <aii.conf.imageUploadAucode>c1200b6c0fc4804ae1081ef0ad0d272d</aii.conf.imageUploadAucode>
+                <aii.conf.imagePath>http://img20.360buyimg.com/n1/</aii.conf.imagePath>
+                <aii.conf.originalImagePath>http://img20.360buyimg.com/cv/</aii.conf.originalImagePath>
+
+                <aii.mq.videoInfoTopic>yf_video_paipai</aii.mq.videoInfoTopic>
+                <aii.mq.feedbackTopic>yf_feedback_paipai</aii.mq.feedbackTopic>
+                <aii.mq.producerTopic>yf_review_paipai</aii.mq.producerTopic>
+
+                <aii.conf.loginCookieTime>1800</aii.conf.loginCookieTime>
+                <aii.conf.loginAccount>pdosadmin,@pdos123;pdosuser,123456</aii.conf.loginAccount>
+                <aii.conf.loginCookieDomain>.jd.com</aii.conf.loginCookieDomain>
+                <aii.data.img3d.path>/export/Data/backup/cv_video_review/video/</aii.data.img3d.path>
+                <!-- ***************************************************************-->
+            </properties>
+        </profile>
+
+        <profile>
+            <id>vc_test</id>
+            <properties>
+                <property-path>vc_test</property-path>
+                <!--erp写的登录cookie的名称-->
+                <aii.hrm.auth.cookie.name>erp1.jd.com</aii.hrm.auth.cookie.name>
+                <!--erp cookie的domain -->
+                <aii.hrm.auth.cookie.domain>videoreview.jd.com</aii.hrm.auth.cookie.domain>
+                <!--erp登录域名 -->
+                <login.domain.name>erp1.360buy.com</login.domain.name>
+                <aii.login.cookie.name>_admin_</aii.login.cookie.name>
+                <aii.session.timeout>180000</aii.session.timeout>
+                <!-- log日志 -->
+                <aii.log.level>INFO</aii.log.level>
+                <!--系统域名  -->
+                <aii.domain.name>videoreview.jd.com</aii.domain.name>
+                <aii.log.path>/export/Logs/${aii.domain.name}</aii.log.path>
+
+                <!--erp登录地址 -->
+                <login.address>http://ssa.jd.com/sso/login</login.address>
+                <!-- 正式环境下引用spring-config-jsf.xml -->
+                <aii.jsf.spring.config>jsf</aii.jsf.spring.config>
+                <!-- 正式环境下引用spring-config-refer.xml -->
+                <aii.refer.spring.config>refer</aii.refer.spring.config>
+
+                <aii.business.identity>vc</aii.business.identity>
+                <aii.business.appId>200000</aii.business.appId>
+                <aii.business.logo.blacklist>logo-blacklist-common</aii.business.logo.blacklist>
+                <aii.business.logo.fuzzymap>logo-fuzzy-map</aii.business.logo.fuzzymap>
+
+                <aii.conf.imageUploadAucode>d3a313cb0d444049260ab6c0a6535f3c</aii.conf.imageUploadAucode>
+                <aii.conf.imagePath>http://img30.360buyimg.com/test/</aii.conf.imagePath>
+                <aii.conf.originalImagePath>http://img30.360buyimg.com/test/</aii.conf.originalImagePath>
+
+                <!--测试环境链接和用户密码手动在jmq.properties里改-->
+                <aii.mq.videoInfoTopic>video_vc</aii.mq.videoInfoTopic>
+                <aii.mq.feedbackTopic>feedback_vc</aii.mq.feedbackTopic>
+                <aii.mq.producerTopic>review_vc</aii.mq.producerTopic>
+
+                <aii.conf.loginCookieTime>1800</aii.conf.loginCookieTime>
+                <aii.conf.loginAccount>pdosadmin,@pdos123;pdosuser,123456</aii.conf.loginAccount>
+                <aii.conf.loginCookieDomain>.jd.com</aii.conf.loginCookieDomain>
+                <aii.data.img3d.path>/export/Data/backup/cv_video_review/video/</aii.data.img3d.path>
+                <!-- ***************************************************************-->
+
+            </properties>
+        </profile>
+
+        <profile>
+            <id>vc_pro</id>
+            <properties>
+                <property-path>vc_pro</property-path>
+                <!--erp写的登录cookie的名称-->
+                <aii.hrm.auth.cookie.name>erp1.jd.com</aii.hrm.auth.cookie.name>
+                <!--erp cookie的domain -->
+                <aii.hrm.auth.cookie.domain>videoreview.jd.com</aii.hrm.auth.cookie.domain>
+                <!--erp登录域名 -->
+                <login.domain.name>erp1.360buy.com</login.domain.name>
+                <aii.login.cookie.name>_admin_</aii.login.cookie.name>
+                <aii.session.timeout>180000</aii.session.timeout>
+                <!-- log日志 -->
+                <aii.log.level>INFO</aii.log.level>
+                <!--系统域名  -->
+                <aii.domain.name>videoreview.jd.com</aii.domain.name>
+                <aii.log.path>/export/Logs/${aii.domain.name}</aii.log.path>
+
+                <!--erp登录地址 -->
+                <login.address>http://ssa.jd.com/sso/login</login.address>
+                <!-- 正式环境下引用spring-config-jsf.xml -->
+                <aii.jsf.spring.config>jsf</aii.jsf.spring.config>
+                <!-- 正式环境下引用spring-config-refer.xml -->
+                <aii.refer.spring.config>refer</aii.refer.spring.config>
+
+                <aii.business.identity>vc</aii.business.identity>
+                <aii.business.appId>200000</aii.business.appId>
+                <aii.business.logo.blacklist>logo-blacklist-common</aii.business.logo.blacklist>
+                <aii.business.logo.fuzzymap>logo-fuzzy-map</aii.business.logo.fuzzymap>
+
+                <aii.conf.imageUploadAucode>c1200b6c0fc4804ae1081ef0ad0d272d</aii.conf.imageUploadAucode>
+                <aii.conf.imagePath>http://img20.360buyimg.com/n1/</aii.conf.imagePath>
+                <aii.conf.originalImagePath>http://img20.360buyimg.com/cv/</aii.conf.originalImagePath>
+
+                <!--测试环境链接和用户密码手动在jmq.properties里改-->
+                <aii.mq.videoInfoTopic>video_vc</aii.mq.videoInfoTopic>
+                <aii.mq.feedbackTopic>feedback_vc</aii.mq.feedbackTopic>
+                <aii.mq.producerTopic>review_vc</aii.mq.producerTopic>
+
+                <aii.conf.loginCookieTime>1800</aii.conf.loginCookieTime>
+                <aii.conf.loginAccount>pdosadmin,@pdos123;pdosuser,123456</aii.conf.loginAccount>
+                <aii.conf.loginCookieDomain>.jd.com</aii.conf.loginCookieDomain>
+                <aii.data.img3d.path>/export/Data/backup/cv_video_review/video/</aii.data.img3d.path>
+                <!-- ***************************************************************-->
+
+            </properties>
+        </profile>
+
+    </profiles>
+</project>
